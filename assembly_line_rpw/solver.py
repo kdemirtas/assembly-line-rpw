@@ -5,16 +5,18 @@ class Solver:
 
     def solve(self):
         # Write the solver code here
-        return solution
 
-    def print_solution(self)
+        return self.solution
+
+
+    def print_solution(self):
         if not self.solution:
             print("Solution is empty. Make sure you solved the model first.")
         else:
             # Pretty print the solution to console
             pass
 
-    def solution_to_text(self)
+    def solution_to_text(self):
         pass
 
     

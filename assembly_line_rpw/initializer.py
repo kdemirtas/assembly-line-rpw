@@ -1,6 +1,6 @@
 import os
 import json
-from . import parser, model, solver
+from assembly_line_rpw import parser
 
 class DirectoryStructure:
     def __init__(self):
@@ -14,7 +14,7 @@ class Initializer:
     def __init__(self, filename):
         # Get to the absolute path of the file given the filename
         ds = DirectoryStructure()
-        file_path = os.path.join(ds.files_dir, "filename")
+        file_path = os.path.join(ds.files_dir, filename)
         with open(file_path) as fp:
             self.input = json.load(fp)
 

@@ -1,8 +1,3 @@
-import json
-import os
-from . import model
-
-import numpy as np
 
 
 class Parser:
