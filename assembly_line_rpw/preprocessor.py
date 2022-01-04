@@ -6,6 +6,10 @@ class PreProcessor:
 
     def _find_immediate_successors(self):
         for task in self.tasks:
-            for pred in task.pred_list:
+            for pred in task["preds"]:
                 pred_task = self.task_dict[pred]
-                pred_task.add_successor(task)
+                pred_task.add_successor(task["id"])
+
+    def process(self):
+        self._find_immediate_successors()
+        return self.model

@@ -7,6 +7,8 @@ def main():
     filename = "example1.json"
     init = Initializer(filename)
     mod = init.create_model()
+    pre = PreProcessor(mod)
+    mod = pre.process()
     sol = Solver(mod)
     solution = sol.solve()
 
