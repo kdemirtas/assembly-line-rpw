@@ -11,7 +11,7 @@ class Solver:
         # Write the solver code here
 
         for task in self.model.task_dict.values():
-            task._find_all_successors(self.model.task_dict)
+            task.find_all_successors(self.model.task_dict)
 
         return self.solution
 

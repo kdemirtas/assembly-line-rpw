@@ -12,6 +12,8 @@ def main():
     sol = Solver(mod)
     solution = sol.solve()
 
+    print("Solve complete")
+
 
 if __name__ == "__main__":
     main()
