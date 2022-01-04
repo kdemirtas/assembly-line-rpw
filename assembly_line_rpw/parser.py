@@ -1,4 +1,4 @@
-from assembly_line_rpw.model import Task
+
 
 class Parser:
     def __init__(self, input):
@@ -16,24 +16,15 @@ class Parser:
         if tasks is None:
             raise UserWarning("Caution required by user. Tasks are not provided")
 
-        task_dict = {}
-        for task in tasks:
-            task_id = task["id"]
-            duration = task["duration"]
-            pred_list = task["preds"]
-            t = Task(task_id, duration, pred_list)
-            task_dict[task_id] = t
-
-        return tasks, task_dict
+        return tasks
 
     def parse(self):
         settings = self._parse_settings()
-        tasks, task_dict = self._parse_tasks()
+        tasks = self._parse_tasks()
 
         parse_result = {
             "settings": settings,
             "tasks": tasks,
-            "task_dict": task_dict
         }
 
         return parse_result

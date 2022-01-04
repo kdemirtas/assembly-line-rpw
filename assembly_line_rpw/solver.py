@@ -1,3 +1,7 @@
+class Solution:
+    def __init__(self):
+        pass
+
 class Solver:
     def __init__(self, model):
         self.model = model

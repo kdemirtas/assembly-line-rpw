@@ -2,6 +2,7 @@ import os
 import json
 from assembly_line_rpw import parser
 from assembly_line_rpw import model
+from assembly_line_rpw.model import Task
 
 
 class DirectoryStructure:
@@ -24,6 +25,14 @@ class Initializer:
         p = parser.Parser(self.input)
         parse_result = p.parse()
 
-        m = model.Model(parse_result["settings"], parse_result["tasks"], parse_result["task_dict"])
-        return m
+        task_dict = {}
+        for task in parse_result["tasks"]:
+            task_id = task["id"]
+            duration = task["duration"]
+            pred_list = task["preds"]
+            t = Task(task_id, duration, pred_list)
+            task_dict[task_id] = t
+
+        mod = model.Model(parse_result["settings"], parse_result["tasks"], task_dict)
+        return mod
 
