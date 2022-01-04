@@ -4,8 +4,9 @@ from assembly_line_rpw.solver import Solver
 
 def main():
     filename = "example1.json"
-    model = Initializer(filename)
-    sol = Solver(model)
+    init = Initializer(filename)
+    mod = init.create_model()
+    sol = Solver(mod)
     solution = sol.solve()
 
 

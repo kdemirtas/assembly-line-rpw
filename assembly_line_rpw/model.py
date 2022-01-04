@@ -3,8 +3,12 @@ class Task:
         self.id = id
         self.duration = duration
         self.pred_list = pred_list
+        print(self.id, self.duration, self.pred_list)
 
     def _compute_rpw(self):
+        pass
+
+    def _successive_tasks(self):
         pass
 
 class Station:

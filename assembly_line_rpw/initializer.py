@@ -1,6 +1,8 @@
 import os
 import json
 from assembly_line_rpw import parser
+from assembly_line_rpw import model
+
 
 class DirectoryStructure:
     def __init__(self):
@@ -22,6 +24,6 @@ class Initializer:
         p = parser.Parser(self.input)
         parse_result = p.parse()
 
-        m = model.Model(settings, tasks, task_dict)
-        return model
+        m = model.Model(parse_result["settings"], parse_result["tasks"], parse_result["task_dict"])
+        return m
 

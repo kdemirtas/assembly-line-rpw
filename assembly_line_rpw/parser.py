@@ -1,4 +1,4 @@
-
+from assembly_line_rpw.model import Task
 
 class Parser:
     def __init__(self, input):
@@ -14,15 +14,15 @@ class Parser:
     def _parse_tasks(self):
         tasks = self.input.get("tasks")
         if tasks is None:
-            raise UserWarning("Caution required by user. Nodes are not provided")
+            raise UserWarning("Caution required by user. Tasks are not provided")
 
         task_dict = {}
         for task in tasks:
             task_id = task["id"]
             duration = task["duration"]
-            pred_list = task["pred_list"]
-            t = data.model.task(task_id, duration, pred_list)
-            task_dict[t.node_id] = t
+            pred_list = task["preds"]
+            t = Task(task_id, duration, pred_list)
+            task_dict[task_id] = t
 
         return tasks, task_dict
 
@@ -36,4 +36,4 @@ class Parser:
             "task_dict": task_dict
         }
 
-        return result
+        return parse_result
