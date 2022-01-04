@@ -11,8 +11,11 @@ class Task:
     def add_successor(self, succ):
         self.succ_list.append(succ)
 
-    def compute_rpw(self):
-        pass
+    def compute_rpw(self, task_dict):
+        self.rpw = self.duration
+        for succ_task in self.all_succ_list:
+            succ_task_duration = task_dict[succ_task].duration
+            self.rpw += succ_task_duration
 
     def find_all_successors(self, task_dict, task=None):       
         if not task:

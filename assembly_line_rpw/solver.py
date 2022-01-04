@@ -12,6 +12,7 @@ class Solver:
 
         for task in self.model.task_dict.values():
             task.find_all_successors(self.model.task_dict)
+            task.compute_rpw(self.model.task_dict)
 
         return self.solution
 
